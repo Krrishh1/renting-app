@@ -3,8 +3,8 @@ import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 
 import { ToastContainer, toast } from 'react-toastify';
-import Login from './pages/login'
-import SignUp from './pages/signUp'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
 import ListingPage1 from './pages/ListingPage1'
 import ListingPage2 from './pages/ListingPage2'
 import ListingPage3 from './pages/ListingPage3'
