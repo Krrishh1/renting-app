@@ -29,7 +29,7 @@ function Login() {
                 setUserData(result.data)
                 navigate("/")
                 console.log(result)
-                 toast.success("Login Successfully")
+                 toast.success("Logged in Successfully")
             } catch (error) {
                 setLoading(false)
                 console.log(error)
