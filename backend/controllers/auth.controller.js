@@ -17,7 +17,7 @@ export const signUp = async (req, res) => {
 
         const existUser = await User.findOne({ email });
         if (existUser) {
-            return res.status(400).json({ message: "User already exists" });
+            return res.status(400).json({ message: "User with this email already exists" });
         }
 
         const hashPassword = await bcrypt.hash(password, 10);
@@ -61,11 +61,11 @@ export const login = async (req,res) => {
         let {email,password} = req.body
         let user= await User.findOne({email}).populate("listing","title image1 image2 image3 description rent category city landMark")
         if(!user){
-            return res.status(400).json({message:"User is not exist"})
+            return res.status(400).json({message:"User does not exist"})
         }
         let isMatch = await bcrypt.compare(password,user.password)
         if(!isMatch){
-            return res.status(400).json({message:"incorrect Password"})
+            return res.status(400).json({message:"Password is incorrect"})
         }
         let token = await genToken(user._id)
         res.cookie("token",token,{
@@ -86,7 +86,7 @@ export const login = async (req,res) => {
 export const logOut = async (req,res) => {
     try {
         res.clearCookie("token")
-        return res.status(200).json({message:"Logout Successfully"})
+        return res.status(200).json({message:"Logged out Successfully"})
     } catch (error) {
         return res.status(500).json({message:`logout error ${error}`})
     }
