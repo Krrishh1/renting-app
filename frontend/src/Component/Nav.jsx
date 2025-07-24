@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/homifyyy.jpg'
 import { FiSearch } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
