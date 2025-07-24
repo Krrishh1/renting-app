@@ -74,8 +74,11 @@ function Nav() {
                     <button className='px-[20px] py-[10px] flex items-center justify-center gap-[5px] border-[1px] border-[#8d8c8c] rounded-[50px] hover:shadow-lg' onClick={()=>setShowpopup(prev =>!prev)}>
                         <span><GiHamburgerMenu className='w-[20px] h-[20px]' /></span>
                         {userData == null && <span><CgProfile className='w-[23px] h-[23px]' /></span>}
-                        {userData != null && <span className='w-[30px] h-[30px] bg-[#FF0000] text-[white] rounded-full flex items-center justify-center'>{userData?.name.slice(0,1)}</span>}
-                    </button>
+                       {userData != null && (
+  <span className='w-[30px] h-[30px] bg-[#FF0000] text-white rounded-full grid place-items-center'>
+    {userData?.name.slice(0, 1).toUpperCase()}
+  </span>
+)}
                     {showpopup && <div className='w-[220px] h-[250px] absolute bg-slate-50 top-[110%] right-[3%] border-[1px] border-[#aaa9a9] z-10 rounded-lg md:right-[10%]'>
                         <ul className='w-[100%] h-[100%] text-[17px] flex items-start justify-around flex-col py-[10px]'>
                             {!userData && <li className='w-[100%] px-[15px] py-[10px] hover:bg-[#f4f3f3] cursor-pointer' onClick={()=>{navigate("/login");setShowpopup(false)}}>Login</li>}
