@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
 app.get('/api/users', (req, res) => {
   res.json({ users: [] });
 });
+app.get('/ping', (req, res) => res.send("I'm awake")); // to avoid lags
 
 // Start server
 const PORT = 8000;
