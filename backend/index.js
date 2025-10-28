@@ -41,7 +41,13 @@ app.get('/ping', (req, res) => {
   console.log("Ping received - keeping server awake ✅");
   res.send("I'm awake");
 });
-
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'Server is awake and running',
+    timestamp: new Date()
+  });
+});
 // Start server (only once)
 app.listen(port, () => {
   connectDb();
