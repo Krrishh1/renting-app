@@ -48,6 +48,10 @@ app.get('/health', (req, res) => {
     timestamp: new Date()
   });
 });
+app.get('/uptimecheck', (req, res) => {
+  console.log("Ping received - keeping server awake ✅");
+  res.send("I'm fully awake");
+});
 // Start server (only once)
 app.listen(port, () => {
   connectDb();
